@@ -11,20 +11,19 @@ find d, which is the multiplicative inverse of e in Z sub phi.
 """
 import random
    
-# Returns a random prime number
 def generateRandomPrime(min_size, max_size):
+    ''' Returns a random prime number'''
     while True:
         randomPrime = random.randrange(min_size, max_size)
         if (Fermat(randomPrime)):
             return randomPrime
         
-# Determines if gcd(a,b) is 1 (relatively prime)
 def coPrime(a, b):
+    ''' Determines if gcd(a,b) is 1 (relatively prime)'''
     return egcd(a, b) == 1
 
-# Determines whether number is prime or not
 def Fermat(randomPrime):
-    '''Test if p is prime with Fermat's little theorem'''
+    ''' Test if number is prime with Fermat's little theorem'''
     t = True
     for i in range(1, randomPrime):
         if pow(i, randomPrime-1, randomPrime) != 1:
@@ -54,12 +53,12 @@ def extended_egcd(a, b):
     return y, x - a//b*y, d
 
 def generateKeys(min_size, max_size):
+    ''' Function that generates RSA keys within given range'''
     p = q = e = d = n = 0
     
     # Generates a random prime number for p and q
     p = generateRandomPrime(min_size, max_size) # prime number p
     q = generateRandomPrime(min_size, max_size) # prime number q
-    
     
     # Prevents q from equaling the same value as p
     while (q == p):
@@ -81,7 +80,7 @@ def generateKeys(min_size, max_size):
     d = pow(p, -1, q)
     
 # This chunk allows you to test the key generation 
-'''
+
     print('p is:' , p)
     print('q is:' , q)
     print('n is:' , n)
@@ -90,6 +89,6 @@ def generateKeys(min_size, max_size):
     print('d is:' , d)
     
 generateKeys(100000, 1000000)
-'''
+
 
 

@@ -8,11 +8,12 @@ correct outputs. This acts as the main driver for the entire
 RSA project.
 
 """
-from operator import truediv
-import key_gen
 
-# Main driver
+import key_gen
+import encrypt_decrypt
+
 def main():
+    '''Main driver'''
     # Step 1: Generate RSA keys
     key_gen.generateKeys(100000,1000000) # Generates RSA keys, where p and q are prime numbers in range 100,000 - 1,000,000
     print('RSA keys have been generated.')
