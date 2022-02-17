@@ -78,9 +78,9 @@ def generateKeys(min_size, max_size):
     
     # Calculate d, the modular multiplicative inverse
     d = pow(p, -1, q)
-    
-# This chunk allows you to test the key generation 
 
+    # This chunk allows you to test the key generation
+'''
     print('p is:' , p)
     print('q is:' , q)
     print('n is:' , n)
@@ -89,6 +89,4 @@ def generateKeys(min_size, max_size):
     print('d is:' , d)
     
 generateKeys(100000, 1000000)
-
-
-
+'''
