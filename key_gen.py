@@ -10,6 +10,14 @@ find d, which is the multiplicative inverse of e in Z sub phi.
 
 """
 import random
+
+# Global values for use in other files
+global p_perm
+global q_perm
+global n_perm
+global e_perm
+global d_perm
+global phiN_perm
    
 def generateRandomPrime(min_size, max_size):
     ''' Returns a random prime number'''
@@ -77,9 +85,24 @@ def generateKeys(min_size, max_size):
             break
     
     # Calculate d, the modular multiplicative inverse
-    d = pow(p, -1, q)
-
-    # This chunk allows you to test the key generation
+    d = extended_egcd(e, phiN)
+    d = d[0]
+    if d < 1:
+        d = phiN + d
+    
+# This chunk allows you to test the key generation 
+    global p_perm
+    p_perm = p
+    global q_perm
+    q_perm = q
+    global n_perm
+    n_perm = n
+    global e_perm
+    e_perm = e
+    global d_perm
+    d_perm = d
+    global phiN_perm
+    phiN_perm = phiN
 '''
     print('p is:' , p)
     print('q is:' , q)
@@ -90,3 +113,5 @@ def generateKeys(min_size, max_size):
     
 generateKeys(100000, 1000000)
 '''
+
+

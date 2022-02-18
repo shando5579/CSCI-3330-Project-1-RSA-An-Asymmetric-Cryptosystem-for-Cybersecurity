@@ -8,6 +8,9 @@ authenticating digital signatures.
 
 """
 
+import encrypt_decrypt
+import key_gen
+
 def fastExpo_recursive(a, p, n):
     ''' Returns a^p mod n '''
     if p == 0:
@@ -20,9 +23,15 @@ def fastExpo_recursive(a, p, n):
         return a *(t**2%n)%n
 
 def sign(m, n, d):
-    s = fastExpo_recursive(m, d, n)
+    '''Creates a digital signature'''
+    s = list()
+    for i in m:
+        s.append(fastExpo_recursive(i, d, n))
     return s
 
 def authenticate(s, n, e):
-    m = fastExpo_recursive(s, e, n)
+    '''Authenticates a digital signature'''
+    m = list()
+    for i in s:
+        m.append(fastExpo_recursive(i, e, n))
     return m
