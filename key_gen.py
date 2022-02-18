@@ -90,7 +90,7 @@ def generateKeys(min_size, max_size):
     if d < 1:
         d = phiN + d
     
-# This chunk allows you to test the key generation 
+    # Global variables defined
     global p_perm
     p_perm = p
     global q_perm
@@ -103,6 +103,8 @@ def generateKeys(min_size, max_size):
     d_perm = d
     global phiN_perm
     phiN_perm = phiN
+
+# This chunk allows you to test the key generation and get output values
 '''
     print('p is:' , p)
     print('q is:' , q)

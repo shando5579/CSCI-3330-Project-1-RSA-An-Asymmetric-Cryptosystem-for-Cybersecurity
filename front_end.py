@@ -140,9 +140,7 @@ def main():
                                     final = "".join(decrypted_message)
 
                                 print ('Decrypted message:', final) # Prints the decrypted string
-
-                            
-                            decrypt_exit = True
+                            decrypt_exit = True # Exits menu
 
                 # Digitally sign a message
                 elif (owner_choice == '2'):
@@ -157,7 +155,6 @@ def main():
                 elif (owner_choice == '3'):
                     owner_exit = True
                     print ('\n')
-                
 
         # Exit program
         elif (user_choice == '3'):
